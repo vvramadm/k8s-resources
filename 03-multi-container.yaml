@@ -1,8 +1,8 @@
 apiVersion: V1
 kind: Pod 
 metadata:
-    name: multi-container
-    Namespace: expense
+   - name: multi-container
+    
 spec:
    containers:
       -  name: nginx1

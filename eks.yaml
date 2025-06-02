@@ -3,7 +3,7 @@ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: expense1
+  name: expense
   region: ap-south-2
 
 # iam:

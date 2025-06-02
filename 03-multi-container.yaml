@@ -1,5 +1,5 @@
-apiVersion: v2
-kind: Pod
+apiVersion: v1
+kind: pod
 metadata:
     name: multi-container
 spec:

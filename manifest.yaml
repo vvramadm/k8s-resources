@@ -23,8 +23,7 @@ metadata:
 #   # and nodePools are present.
 #   nodeRoleARN: string
 managedNodeGroups:
- - name: ng-1
+ - name: expense
    instanceType: m5.large
    desiredCapacity: 3
    spot: true
-   

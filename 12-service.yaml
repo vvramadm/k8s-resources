@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: nginx
+spec:
+  selector:
+       project: expense 
+       module: backend 
+       environment: dev
+       ports:
+       - name: nginx-svc-port 
+         protocol: TCP 
+         port: 80 # service port
+         targetport: 80 # container port
+---
+apiVersion: v1
+kind: Pod 
+metadata:
+    name: nginx
+    lables:
+       project: expense 
+       module: backend 
+       environment: dev
+spec:
+   containers:
+   -  name: nginx
+      image: nginx
+      envFrom:
+      - configMapRef:
+              name: nginx-config
+        secretRef:
+            name: pod-secret        

@@ -8,5 +8,5 @@ spec:
      image: nginx
      envFrom:
      - ConfigMap:
-             name: nginx-config    
+             name: nginx-config  
 

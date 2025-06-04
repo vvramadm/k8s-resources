@@ -1,4 +1,4 @@
-apiVersion: v2
+apiVersion: v1
 kind: Pod
 metadata:
     name: limits
@@ -7,9 +7,6 @@ spec:
     -  name: nginx
        image: nginx
        resource:
-          requests:
-              cpu: 100m
-              memory: 68mi
           limits:
             cpu: 120m
             memory: 100mi           

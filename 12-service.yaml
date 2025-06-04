@@ -11,7 +11,7 @@ spec:
   - name: nginx-svc-port 
     protocol: TCP 
     port: 80 # service port
-    targetport: 80 # container port
+    targetPort: 80 # container port
 ---
 apiVersion: v1
 kind: Pod 

@@ -28,7 +28,7 @@ spec:
         -  name: backend
            image: vvram143/backend:v1
            envFrom:
-           - configMapRef:
+           - ConfigMaponfigMapRef:
               name: backend-config 
 ---
 apiVersion: v1
@@ -52,7 +52,7 @@ kind: ConfigMap
 metadata:
     name: backend-config 
     namespace: expense
-    
+
 data:
    DB_HOST:mysql 
         

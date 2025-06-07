@@ -36,7 +36,7 @@ spec:
            image: vvram143/backend:v1
            envFrom:
            - ConfigMapRef:
-              name: backend-config 
+                 name: backend-config 
 ---
 apiVersion: v1
 kind: Service

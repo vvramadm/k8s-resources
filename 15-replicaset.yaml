@@ -1,6 +1,6 @@
 
 apiVersion: apps/v1
-kind: deployment # ReplicaSet Deployment
+kind: ReplicaSet #  Deployment
 metadata:
     name: nginx
     labels: # these are replicaset labels

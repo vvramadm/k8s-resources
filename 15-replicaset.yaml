@@ -15,7 +15,7 @@ spec:
        project: expense 
        module: frontend 
        environment: dev
-   template: # this is the pod defination 
+template: # this is the pod defination 
       metadata:
          lables:
             project: expense 
@@ -36,14 +36,13 @@ kind: Service
 metadata:
     name: nginx
 spec:
-  type: LoadBalancer 
-  selector:
+    selector:
        project: expense 
        module: frontend
        environment: dev
-  ports:
-  - name: nginx-svc-port 
-    protocol: TCP 
-    port: 80 # service port
-    targetPort: 80 # container port
+    ports:
+    - name: nginx-svc-port 
+      protocol: TCP 
+      port: 80 # service port
+      targetPort: 80 # container port
   

@@ -25,11 +25,7 @@ spec:
         containers:
         -  name: nginx
            image: nginx
-        envFrom:
-        - configMapRef:
-              name: nginx-config
-        -  secretRef:
-            name: pod-secret      
+      
 ---
 apiVersion: v1
 kind: Service

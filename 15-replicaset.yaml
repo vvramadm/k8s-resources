@@ -15,7 +15,7 @@ spec:
        project: expense 
        module: frontend 
        environment: dev
-template: # this is the pod defination 
+   template: # this is the pod defination 
       metadata:
          labels:
             project: expense 

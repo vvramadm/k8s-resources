@@ -11,13 +11,13 @@ spec:
    replica: 3
    selector:
       # these are used to select the pod to create replicas
-   matchLables:
+   matchLabels:
        project: expense 
        module: frontend 
        environment: dev
 template: # this is the pod defination 
       metadata:
-         lables:
+         labels:
             project: expense 
             module: frontend 
             environment: dev 

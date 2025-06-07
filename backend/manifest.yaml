@@ -1,0 +1,58 @@
+
+apiVersion: apps/v1
+kind: Deployment # ReplicaSet
+metadata:
+    name: backend
+    namespace: expense 
+    labels: # these are replicaset labels
+        app: backend 
+        tier: api
+        project: expense 
+       
+spec:
+   replicas: 2
+   selector:
+      # these are used to select the pod to create replicas
+      matchLabels:
+           app: backend 
+           tier: api 
+           project: expense 
+   template: # this is the pod defination 
+      metadata:
+         labels:
+              app: backend
+              tier: api
+              project: expense 
+      spec:         
+        containers:
+        -  name: backend
+           image: vvram143/backend:v1
+           envFrom:
+           - configMapRef:
+              name: 
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: backend
+    namespace: expense
+spec:
+    selector:
+         app: backend 
+         tier: api 
+         project: expense 
+    ports:
+    - name: backend-svc-port 
+      protocol: TCP 
+      port: 8080 # service port
+      targetPort: 8080 # container port
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: backend-config 
+    namespace: expense
+    
+data:
+   DB_HOST:mysql 
+        

@@ -4,7 +4,7 @@
 
 # Kubernetes 1.33 
 
-curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.33.0/2025-05-01/bin/linux/arm64/kubectl
+curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.33.0/2025-05-01/bin/linux/amd64/kubectll
 
 
 
@@ -12,7 +12,7 @@ curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.33.0/2025-05-01/bin/linu
 
 # Kubernetes 1.33 
 
-curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.33.0/2025-05-01/bin/linux/arm64/kubectl.sha256
+curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.33.0/2025-05-01/bin/linux/amd64/kubectl.sha256
 
 
 # Apply execute permissions to the binary.
@@ -21,11 +21,11 @@ sha256sum -c kubectl.sha256
 
 # Apply execute permissions to the binary.
 
-sudo chmod +x ./kubectl
+chmod +x ./kubectl
 
 # Copy the binary to a folder in your PATH. If you have already installed a version of kubectl, then we recommend creating a $HOME/bin/kubectl and ensuring that $HOME/bin comes first in your $PATH.
 
-sudo mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$HOME/bin:$PATH
+mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$HOME/bin:$PATH
 
 
 ## Install eksctl
@@ -44,6 +44,7 @@ sudo mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$HOME/b
 # To download the latest release, run:
 
 # for ARM systems, set ARCH to: `arm64`, `armv6` or `armv7`
+
 ARCH=amd64
 PLATFORM=$(uname -s)_$ARCH
 

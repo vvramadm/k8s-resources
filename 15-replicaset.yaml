@@ -8,7 +8,7 @@ metadata:
         module: frontend 
         environment: dev
 spec:
-   replicas: 3
+   replicas: 2
    selector:
       # these are used to select the pod to create replicas
       matchLabels:
@@ -24,7 +24,7 @@ spec:
       spec:         
         containers:
         -  name: nginx
-           image: nginx:stable-perl
+           image: nginx
 ---
 apiVersion: v1
 kind: Service

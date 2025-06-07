@@ -1,6 +1,6 @@
 
 apiVersion: apps/v1
-kind: deployment # ReplicaSet
+kind: deployment # ReplicaSet Deployment
 metadata:
     name: nginx
     labels: # these are replicaset labels
@@ -8,7 +8,7 @@ metadata:
         module: frontend 
         environment: dev
 spec:
-   replica: 3
+   replicas: 3
    selector:
       # these are used to select the pod to create replicas
    matchLabels:

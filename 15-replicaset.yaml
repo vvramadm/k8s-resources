@@ -1,0 +1,49 @@
+
+apiVersion: apps/v1
+kind: Replicaset
+metadata:
+    name: nginx
+    labels: # these are replicaset labels
+        project: expense 
+        module: frontend 
+        environment: dev
+spec:
+   replica: 3
+   selector:
+      # these are used to select the pod to create replicas
+   matchLables:
+       project: expense 
+       module: frontend 
+       environment: dev
+   template: # this is the pod defination 
+      metadata:
+         lables:
+            project: expense 
+            module: frontend 
+            environment: dev 
+      spec:         
+        containers:
+        -  name: nginx
+           image: nginx
+        envFrom:
+        - configMapRef:
+              name: nginx-config
+        -  secretRef:
+            name: pod-secret      
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: nginx
+spec:
+  type: LoadBalancer 
+  selector:
+       project: expense 
+       module: frontend
+       environment: dev
+  ports:
+  - name: nginx-svc-port 
+    protocol: TCP 
+    port: 80 # service port
+    targetPort: 80 # container port
+  
